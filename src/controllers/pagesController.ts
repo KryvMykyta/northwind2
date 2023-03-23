@@ -29,12 +29,12 @@ export class pagesController {
       const {page} = req.params
       const {count} = req.query
       const rawCustomersData = await this.repository.customersPage(page);
-      const formattedData = this.formatter.addAvatarCustomer(rawCustomersData.data);
+      // const formattedData = this.formatter.addAvatarCustomer(rawCustomersData.data);
   
       const totalPagesFormat = await this.formatter.addTotalPages(rawCustomersData.sqlQueries, page, "customers", count)
   
       return res.status(200).send({
-        data: formattedData,
+        data: rawCustomersData.data,
         totalPages: totalPagesFormat.totalPages,
         currentPage: page,
         sqlQueries: totalPagesFormat.sqlQueries,
@@ -54,11 +54,11 @@ export class pagesController {
       const {count} = req.query
       const rawCustomersData = await this.repository.employeesPage(page);
   
-      const formattedData = this.formatter.addAvatarEmployee(rawCustomersData.data);
+      // const formattedData = this.formatter.addAvatarEmployee(rawCustomersData.data);
       const totalPagesFormat = await this.formatter.addTotalPages(rawCustomersData.sqlQueries, page, "employees", count)
   
       return res.status(200).send({
-        data: formattedData,
+        data: rawCustomersData.data,
         totalPages: totalPagesFormat.totalPages,
         currentPage: page,
         sqlQueries: totalPagesFormat.sqlQueries
@@ -124,11 +124,11 @@ export class pagesController {
       const {page} = req.params
       const {count} = req.query
       const rawCustomersData = await this.repository.suppliersPage(page);
-      const formattedData = this.formatter.addAvatarSupplier(rawCustomersData.data);
+      // const formattedData = this.formatter.addAvatarSupplier(rawCustomersData.data);
       const totalPagesFormat = await this.formatter.addTotalPages(rawCustomersData.sqlQueries, page,"suppliers", count)
   
       return res.status(200).send({
-        data: formattedData,
+        data: rawCustomersData.data,
         totalPages: totalPagesFormat.totalPages,
         currentPage: page,
         sqlQueries: totalPagesFormat.sqlQueries
