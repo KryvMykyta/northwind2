@@ -383,9 +383,9 @@ export class PgRepository {
         name: sql<string>`CONCAT(${employees.FirstName}, ' ' , ${employees.LastName})`.as(
           "name"
         ),
-        phone: employees.HomePhone,
         title: employees.Title,
         city: employees.City,
+        phone: employees.HomePhone,
         country: employees.Country,
       })
       .from(employees)
