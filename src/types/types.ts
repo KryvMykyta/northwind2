@@ -109,7 +109,7 @@ export type OrderPageInfo = {
     TotalPrice: number;
     Discount: number;
   }[];
-  orderInfo: {
+  data: {
     CustomerId: string;
     ShipName: string;
     TotalProductsDiscount: number;

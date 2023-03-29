@@ -100,7 +100,7 @@ export class DataFormatter {
     productsInfo: OrderProductsInfo
   ): OrderPageInfo => {
     const responseData = {
-      orderInfo: orderInfo.data,
+      data: orderInfo.data,
       productsInfo: productsInfo.data,
       sqlQueries: [...productsInfo.sqlQueries, ...orderInfo.sqlQueries]
     };
