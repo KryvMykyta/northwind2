@@ -1,4 +1,3 @@
-import { metricsController } from './controllers/metricsController';
 import { DataFormatter } from './formatter/DataFormatter';
 import { pagesController } from './controllers/pagesController';
 import { searchController } from './controllers/searchController';
@@ -28,9 +27,8 @@ const formatter = new DataFormatter(repository)
 const items = new itemController("/item", repository, formatter)
 const search = new searchController("/search", repository, formatter)
 const pages = new pagesController("/pages", repository, formatter)
-const country = new metricsController("/metrics")
 
-const controllers = [items, search, pages, country]
+const controllers = [items, search, pages]
 controllers.forEach((controller) => {
     controller.init()
     app.use(controller.path, controller.router)
